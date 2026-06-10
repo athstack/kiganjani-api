@@ -1,0 +1,105 @@
+const express = require("express");
+const mysql = require("mysql2");
+const cors = require("cors");
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+// Connect to database//
+const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "1964",
+    database: "kiganjani_motors"
+});
+
+db.connect(err => {
+    if (err) {
+        console.log("DB error:", err);
+    } else {
+        console.log("Database connected");
+    }
+});
+
+// API route
+app.post("/api/users", (req, res) => {
+    const { name, email, phoneNo, location } = req.body;
+
+    if (!name || !email || !phoneNo || !location) {
+        return res.status(400).json({ message: "All fields required" });
+    }
+
+    const sql = "INSERT INTO users (name, email, phoneNo, location) VALUES (?, ?, ?, ?)";
+
+    db.query(sql, [name, email, phoneNo, location], (err, result) => {
+        if (err) {
+            return res.status(500).json({ message: err.message });
+        }
+
+        res.json({ message: "Order placed successfully" });
+    });
+});
+
+//fetch all users from database
+app.get("/api/users", (req, res) => {
+    const sql = "SELECT * FROM users";
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(500).json({ message: err.message });
+        }
+        res.json(results);
+    });
+});
+
+// Delete a specific user by their ID URL parameter
+app.delete("/api/users/:id", (req, res) => {
+    const userId = req.params.id;
+    const sql = "DELETE FROM users WHERE id = ?";
+    
+    db.query(sql, [userId], (err, result) => {
+        if (err) {
+            return res.status(500).json({ message: err.message });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.json({ message: `User with ID ${userId} deleted successfully` });
+    });
+});
+
+// Update an existing user's details by their ID
+app.put("/api/users/:id", (req, res) => {
+    const userId = req.params.id;
+    const { name, email, phoneNo, location } = req.body;
+
+    // Validation
+    if (!name || !email || !phoneNo || !location) {
+        return res.status(400).json({ message: "All fields are required for updates" });
+    }
+
+    const sql = "UPDATE users SET name = ?, email = ?, phoneNo = ?, location = ? WHERE id = ?";
+    db.query(sql, [name, email, phoneNo, location, userId], (err, result) => {
+        if (err) {
+            return res.status(500).json({ message: err.message });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.json({ message: `User with ID ${userId} updated successfully` });
+    });
+});
+
+/* Start server
+app.listen(3000, () => {
+    console.log("Server running on http://localhost:3000");
+  
+    //Testing API Conection: http://localhost:3000/api/users
+});*/
+
+   // Start server
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

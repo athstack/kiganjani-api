@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiganjani Motors</title>
+
+<link rel="stylesheet" href="KAYOMBO/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<script src="Bootstrap/js/bootstrap.bundle.min.js"></script> 
+
+</head>
+<body>
+
+<!--sidebar-->
+<div id="sidebar" class="sidebar">
+  <div class="logo-container text-center py-3">
+    <a href="index.html">
+      <img src="IMAGES/logo.png" alt="Kiganjani Motors Logo" class="sidebar-logo">
+    </a>
+    <h5 class="fw-bold text-success text-center logo-text">KM</h5>
+  </div>
+  
+  
+
+  <a href="index.html" class="nav-link active">
+    <i class="bi bi-house"></i> <span>Home</span>
+  </a>
+  <a href="about.html" class="nav-link">
+    <i class="bi bi-info-circle"></i> <span>About Us</span>
+  </a>
+</div>
+
+<div id="content" class="content">
+<!-- Top Bar -->
+<nav class="navbar navbar-dark bg-dark position-relative shadow-sm">
+  <div class="container-fluid">
+    <button class="btn btn-outline-success" onclick="toggleSidebar()">☰</button>
+  </div>
+  <span class="navbar-brand position-absolute top-50 start-50 translate-middle text-success fw-bold">
+    <h2 class="mb-0">Kiganjani Motors</h2>
+  </span>
+</nav>
+<!-- Home Section -->
+ <section id="home" class="text-white text-center p-5"
+style="background:url('IMAGES/top_nav.jpg') center/cover;">
+  <div class="container">
+    <h1>Drive Your Dream Car</h1>
+    <p>Affordable • Reliable • Trusted</p>
+  </div>
+</section>
+
+<section id="inventory" class="py-5">
+<div class="container">
+<h2 class="text-center mb-4 fw-bold text-dark">Available Cars</h2>
+
+<div class="text-center mb-4">
+  <button class="btn btn-success m-1" onclick="filterCars('all')">All</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('sedan')">Sedan</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('suv')">SUV</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('Sports')">Sports</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('Tesla')">Tesla</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('Truck')">Truck</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('Minivan')">Minivan</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('Luxury')">Luxury</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('Hatchback')">Hatchback</button>
+  <button class="btn btn-outline-success m-1" onclick="filterCars('Convertible')">Convertible</button>
+</div>
+
+<div class="row" id="carList">
+  
+  <div class="col-md-4 car sedan">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/sedan2.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Mitsubishi Lancer Evo</h5>
+        <p class="text-muted small mb-3">$45,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 car suv">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/suv2.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Range Rover</h5>
+        <p class="text-muted small mb-3">$25,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 car Sports">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/sports car1.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Ferrari 296 GTP</h5>
+        <p class="text-muted small mb-3">$300,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 car Tesla">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/tesla3.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Tesla Model S</h5>
+        <p class="text-muted small mb-3">$101,630</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+   <div class="col-md-6 car Tesla">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/tesla2.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Tesla Model X</h5>
+        <p class="text-muted small mb-3">$160,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 car Truck">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/truck.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Ford F-150 Raptor</h5>
+        <p class="text-muted small mb-3">$110,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 car Minivan">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/minivan.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Renault Espace</h5>
+        <p class="text-muted small mb-3">$55,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 car Hatchback">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/hatchback.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Mercedes-Benz A</h5>
+        <p class="text-muted small mb-3">$70,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 car Luxury">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/luxury.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Marcedes-AMG C63 Cabriolet</h5>
+        <p class="text-muted small mb-3">$100,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 car Luxury">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/bmw.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">BMW 8 Series</h5>
+        <p class="text-muted small mb-3">$95,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 car Convertible">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/bmw.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Mercedes-Benz E</h5>
+        <p class="text-muted small mb-3">$85,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 car Convertible">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/convertible2.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Marcedes-Benz SLC</h5>
+        <p class="text-muted small mb-3">$35,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 car Convertible">
+    <div class="card shadow-sm border-0 mb-4">
+      <img src="IMAGES/convertible3.jpg" class="card-img-top">
+      <div class="card-body text-center">
+        <h5 class="fw-bold">Ford Thunderbird</h5>
+        <p class="text-muted small mb-3">$60,000</p>
+        <a href="form.html" class="btn btn-success w-100">Order Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-5 text-center bg-light">
+  <div class="container">
+    <h2 class="fw-bold">Contact Us</h2>
+    <p class="mb-1">📍 Mbeya, Tanzania</p>
+    <p class="text-success fw-bold">+255 782 303 971</p>
+  </div>
+</section>
+
+<footer class="bg-dark text-white-50 text-center p-4">
+  <small>© 2026 Kiganjani Motors | Quality You Can Trust</small>
+</footer>
+
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("collapsed");
+  document.getElementById("content").classList.toggle("full");
+}
+
+function filterCars(category) {
+  let cars = document.querySelectorAll(".car");
+  cars.forEach(car => {
+    if (category === "all") {
+      car.style.display = "block";
+    } else {
+      car.style.display = car.classList.contains(category) ? "block" : "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
